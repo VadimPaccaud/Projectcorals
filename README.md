@@ -6,12 +6,15 @@ This program simulates in first the impact of temperature on a coral reef in Gil
 
 The program will:
 1. Solve a differential system equations and save the results in a CSV file (**resolution_modelisation.c**)
-2. Simulate the release of CO2 in atmosphere ("**main.c*").
-3. Graph all results obtained, and key figures will be saved in "*Results*" as .jpg files.
+2. Plot the results of the CSV file (**visualisation_modele.py**)
+3. Simulate the release of CO2 in atmosphere and how it's affect the pH of the ocean and save the results in 3 CSV file (**main_humanimpact.c**)
+4. Plot the results of the two CSV file (**visualisation_pollution.py** and **visualisation_acidite.py** respectively)
+5. Apply linear regression method on datas collected in one of the CSV file and plot it (**linearregression.py**)
+6. All graphs results obtained, and key figures will be saved in "*Results*" as .png .
 
-## Project structure
+## Project structure !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-- "*Data*" contains input data
+- As the data used were few in number, it was quicker to write them directly to the code. We mention them in the code. 
 - "*Internal*" contains files used for passing information between C and Python. They are automatically edited by the program and should not be manually modified.
 - "*Code*" contains program code.
 - "*Results*" contains saved .jpg files of graphs and a summary .txt file.
@@ -19,15 +22,13 @@ The program will:
 ### Inputs and Outputs
 
 Inputs:
-- "*Data/Rhine_depth.csv*" is a semicolon-delimited file.
-- "*Data/Rhine_DO_Palmrainbrücke.csv*" is a semicolon-delimited file.
-- "*Data/Rhine_Flowrate_Rheinhalle.csv*" is a semicolon-delimited file.
-- "*Data/Rhine_Watertemperature_Palmrainbrucke.csv*" is a semicolon-delimited file.
-- "*Data/Rhine_windspeeds.txt*" is a semicolon-delimited file.
+- As the data used were few in number, it was quicker to write them directly to the code. We mention them in the code.
 
 Internal files:
-- "*Internal/CalculatedData.csv*" is a comma-delimited file.
-- "*Internal/PythonParameters.txt*" is a text file.
+- **Internal/ecosystem_simulation_results.csv** is a comma-delimited file.
+- **Internal/CO2_terrain.csv** , 1 column and 10'000 rows file.
+- **Internal/acidite_terrain.csv**, 1 column and 10'000 rows file.
+- **Internal/valeurs_uniques_pH_sante.csv** , is a comma-delimited file.
 
 Outputs:
 - "*Results*" contains several image files, each has a custom name of format: "*Dissolved_Oxygen_{Month}_{Value}_percent.png*". You can save them or delete them as required.
@@ -36,9 +37,12 @@ Outputs:
 ## Implementation details
 
 **Overview:**
-- Python sends input values to C through a text file, which contains parameters selected by the user.
+
 - The simulation is handled by C. It directly outputs the results of computation into a CSV file.
-- Python also handles the output and visualisation.
+- Python reads CSV file values, which contains parameters selected by the user and plot CSV contents.
+- The simulation is handled by C. It directly outputs the results of computation into 3 other CSV file ( **Internal/CO2_terrain.csv** , **Internal/acidite_terrain.csv** , **Internal/valeurs_uniques_pH_sante.csv** ).
+- 2 Python program reads  **Internal/CO2_terrain.csv** and **Internal/acidite_terrain.csv** respectively, which contains parameters selected by the user and plot CSV contents.
+- The last Python program make the linear regression with the Numpy modul and plot the results.
 
 **Structure**: In the directory "*Code/*" are located:
 - "*RhineData.py*"
