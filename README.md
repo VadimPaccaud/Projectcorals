@@ -33,6 +33,10 @@ Internal files:
 Outputs:
 - "*Results*" contains several image files, each has a custom name of format: "*Dissolved_Oxygen_{Month}_{Value}_percent.png*". You can save them or delete them as required.
 - "*Results/Results.txt*" is a text file containing summarized information of the simulation, such as critical time and distance. Do **not** delete this file.
+- **C02_atmosphere_figure.png** is an image file, showing the C02 concentration in the atmosphere
+- **pH_water_figure.png** is an image file, showing the pH of water
+- **observation_results.png** is an image file, plotting the datas collected
+- **final_curve.png** is an image file, plotting the relation between coral health and the pH of water
 
 ## Implementation details
 
