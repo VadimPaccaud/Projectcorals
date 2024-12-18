@@ -1,32 +1,30 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Chargement des données depuis le fichier
+# Loading data from the file
 filename = "C02_terrain.csv"
 data = np.loadtxt(filename)
 
-# Reshape des données en un tableau 100x100
+# Reshaping the data into a 100x100 array
 terrain = data.reshape((100, 100))
 
-# Création du graphique
+# Creating the plot
 plt.figure(figsize=(8, 8))
 im = plt.imshow(terrain, cmap='viridis', origin='lower', aspect='equal')
 
-# Ajout d'une barre de couleur avec une étiquette
+# Adding a color bar with a label
 cbar = plt.colorbar(im)
-cbar.set_label("concentration of C02 [ppm]", fontsize=12) 
+cbar.set_label("concentration of C02 [ppm]", fontsize=12)
 
-# Ajout de labels et d'un titre
+# Adding labels and a title
 plt.title("C02 in atmosphere", fontsize=14)
 plt.xlabel("X", fontsize=12)
 plt.ylabel("Y", fontsize=12)
 
-# Personnalisation des ticks
+# Customizing the ticks
 plt.xticks(fontsize=10)
 plt.yticks(fontsize=10)
 
-# Enregistrement (optionnel)
-# plt.savefig("acidite_terrain.png", dpi=300)
-
-# Affichage
+# Displaying the plot
 plt.show()
+
