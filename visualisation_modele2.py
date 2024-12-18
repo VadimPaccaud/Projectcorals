@@ -59,5 +59,5 @@ ax2_temp.legend(loc="upper right")
 
 # Spacing adjustment and saving
 plt.tight_layout()
-plt.savefig("results_modelisation2_version3.png")
+plt.savefig("Rename results_modelisation2_version3.png to visualisation_ecosystem_simulation_results.png")
 plt.show()
