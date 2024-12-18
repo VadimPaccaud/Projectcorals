@@ -25,9 +25,6 @@ plt.ylabel("Y", fontsize=12)
 plt.xticks(fontsize=10)
 plt.yticks(fontsize=10)
 
-# Saving (optional)
-# plt.savefig("acidite_terrain.png", dpi=300)
-
 # Displaying the plot
 plt.show()
 
