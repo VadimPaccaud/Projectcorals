@@ -14,14 +14,14 @@ double randomNumber(double max) {
     return rand() / randomDomaine * max;
 }
 
-// Fonction pour trouver l'indice d'une valeur dans un tableau
+// Function to find an index in an array
 int trouverIndice(double *tableau, int taille, double valeur) {
     for (int i = 0; i < taille; i++) {
         if (fabs(tableau[i] - valeur) < 1e-6) { 
             return i;
         }
     }
-    return -1; // Retourne -1 si la valeur n'est pas trouvée
+    return -1; // Return -1 if we don't find the value
 }
 
 // Function to collect unique values and datas associated
@@ -46,7 +46,7 @@ void simulePollution(int x, int y, double r, double c, double * tableau) {
         double ventX = 5;
         double ventY = 0.3*(x-2);
 
-        double ax = (randomNumber(6) - 3);
+        double ax = (randomNumber(6) - 3);    //We assume here a random movement, can due to many factors as the passage of a boat
         double ay = (randomNumber(6) - 3);
 
         r = r + 20 / r;
@@ -54,7 +54,7 @@ void simulePollution(int x, int y, double r, double c, double * tableau) {
         x += ventX + ax;
         y += ventY + ay;
 
-        if ((x < 0 || x >= taillex) || (y < 0 || y >= tailley)) {
+        if ((x < 0 || x >= taillex) || (y < 0 || y >= tailley)) {    //We stop the simulation if the plume goes out of our land
             break;
         }
         if (c>275){
@@ -68,9 +68,9 @@ void simulePollution(int x, int y, double r, double c, double * tableau) {
                 int nx = x + dx;
                 int ny = y + dy;
 
-                if (nx >= 0 && nx < taillex && ny >= 0 && ny < tailley) {
+                if (nx >= 0 && nx < taillex && ny >= 0 && ny < tailley) {	
                     double distance = sqrt(dx * dx + dy * dy);
-                    if (distance <= r) {
+                    if (distance <= r) {					// We look if the C02 is in the radius, or out. If its out, we apply diffusion
                         tableau[ny * taillex + nx] += c * (1 - distance / r);  // Further we are, further the diffusion is important
                     }
                 }
@@ -119,7 +119,7 @@ int main() {
 	      
     for (int i = 0; i < taillex; i++) {
         for (int j = 0; j < tailley; j++) {
-            pollution[j * taillex + i] = 300;    // We talk of ppm concentration
+            pollution[j * taillex + i] = 300;    // We initialize the concentration of C02[ppm]
         }
     }
     
@@ -129,13 +129,13 @@ int main() {
 		}
 	} 
     
-    double depart_x = 0; 
+    double depart_x = 0; // We start the simulation at the left down corner, we imagine that a port is at this position
     double depart_y = 0;
 	
 	//Simulation of throwing packages of C02 over 20 years
-	double concentration_c02 = 275;
-	double r = 3;
-	int years = 20;
+	double concentration_c02 = 275;      // Initializing of plume concentration[ppm]
+	double r = 3;			     // Initial radius of plume: 3 meters.
+	int years = 20;			     //Simulation on 20 years
 	for(int i = 0; i<years; i++){
 		for(int day = 0; day<365; day++){
 			
@@ -177,8 +177,7 @@ int main() {
 		}
 
 	}
-	
-	
+		
 	// Loop to simulate the coral health with a change in pH
 	for(int x = 0; x<taillex; x++){
 			for(int y = 0; y<tailley; y++){
@@ -207,7 +206,7 @@ int main() {
 			fprintf(output3,"%f\n", acidite[j*taillex+i]);
 		}
 	}
-	// Part to collect data to create a dataset for the linear regression
+    // Part to collect data to create a dataset for the linear regression, we want to have the same number of x and y. 
 	
 	 
     double valeursUniquesPH[taillex * tailley];                         // Arrays to stock unique values of coral health and ph
