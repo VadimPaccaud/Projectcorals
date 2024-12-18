@@ -13,7 +13,7 @@ Inputs:
 - simulation_modelisation2_results.csv
 - C02_terrain.csv is a file with 1 column and 10000 rows(concentration)
 - acidite_terrain.csv is a file with 1 column and 10000 rows(pH)
-- Valeurs_uniques_pH_sante.csv is a tab-delimited file(dataset)
+- valeurs_uniques_pH_sante.csv is a tab-delimited file(dataset)
 
 
 Outputs:
