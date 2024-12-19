@@ -16,14 +16,14 @@ OUT = -o
 PYTHON =  C:/Users/Titouan/Anaconda3/python.exe
 
 # Specification of C files names and their relative paths
-C_FILE_1= Modelisation2/resolution_modelisation2.c
-C_FILE_2 = Modelisation2/main_humanimpact.c
+C_FILE_1= Code/resolution_modelisation2.c
+C_FILE_2 = Code/main_humanimpact.c
 
 # Specification of the name of our Python files
-PYTHON_FILE_1 = Modelisation2/visualisation_modele2.py
-PYTHON_FILE_2 = Modelisation2/visualisation_pollution.py
-PYTHON_FILE_3 = Modelisation2/visualisation_acidite.py
-PYTHON_FILE_4 = Modelisation2/regressionlineaire.py
+PYTHON_FILE_1 = Code/visualisation_modele2.py
+PYTHON_FILE_2 = Code/visualisation_pollution.py
+PYTHON_FILE_3 = Code/visualisation_acidite.py
+PYTHON_FILE_4 = Code/regressionlineaire.py
 
 
 ### ------ Order of compiling files ------ ###
