@@ -107,7 +107,7 @@ int main() {
 	
 	// Initializing of data
 
-    double* pollution = malloc(taillex * tailley * sizeof(double));
+    double* pollution = malloc(taillex * tailley * sizeof(double));  //We use dynamic memory allocation to change/increase the size of our field
     double* acidite = malloc(taillex * tailley * sizeof(double));
     double* sante = malloc(taillex * tailley * sizeof(double));
     
