@@ -10,7 +10,7 @@ from sympy import shape
 x_liste = []
 y_liste = []
 
-#ph et sante
+#ph and health 
 with open("valeurs_uniques_pH_sante.csv", mode="r") as file:
     reader = csv.reader(file)
 
@@ -24,21 +24,22 @@ y = np.array(y_liste)
 x = x.reshape((len(x_liste),1))
 y = y.reshape((len(y_liste),1))
 
+#Plotting our observations
 plt.scatter(x,y)
 plt.show()
 
-#Normalize the x axe, the range is too small
+#Normalize the x axe, the range is too small. If we don't do this step, the red curve will not satsying our observations
 x_mean = np.mean(x)
 x_std = np.std(x)
 x = (x - x_mean) / x_std
 
-#MATRICE X
+#MATRICE X, a mx2 matrix, m the number of observations, first column is our values of pH, and the second column is full of one
 X = np.hstack((x, np.ones(x.shape)))
 
-#MATRICE THETA
+#MATRICE THETA, a 2x1 matrix, with a and b that we want estimate
 theta = np.ones((2,1))
 
-#MODELE
+#MODELE (Y = ax + b)
 def model(A1, A2):
     return A1@A2
 
@@ -59,13 +60,15 @@ def gradient_descendant(X,theta, y,alpha, n):
     return theta
 
 #Final curve, with a and b estimated
-theta_final = gradient_descendant(X,theta,y, 0.001, 10000)
+theta_final = gradient_descendant(X,theta,y, 0.001, 10000) # alpha=0.001, number of iterations n = 10000
 courbe_finale = model(X,theta_final)
 
 # To make the x axe as the beginning
 x = (x*x_std)+x_mean
 
+#print the values of final a and b
 print(theta_final)
+#Plotting our model
 plt.scatter(x,y)
 plt.plot(x,courbe_finale, c = "r")
 plt.show()
