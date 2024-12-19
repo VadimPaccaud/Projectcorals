@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Import the data
-data = pd.read_csv('modelisation2/ecosystem_simulation_results.csv')
+data = pd.read_csv('Code/ecosystem_simulation_results.csv')
 
 # Adjusting years
 start_year = 2020
