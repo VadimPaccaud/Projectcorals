@@ -69,21 +69,21 @@ Outputs:
 ## Instructions
 
 To reproduce results in the report, four steps should be followed:
-1. Navigate to the "*Parameterchoice.py*" function located in the "*Code*" directory. The function contains commented instructions for the user to modify input parameters. Modify as desired, and save the file.
-2. Navigate to the makefile to ensure the Python interpreter selected is yours.
-3. Open the terminal from the project root directory (location of this README.md file). You can check this is the case by typing:
-    ```
-    ls
-    ```
-    The terminal should return:
-    ```
-    Code    Data    Internal    README.md   Results    makefile
-    ```
-4. Run the following line in the terminal:
+1. Navigate to the "*ecosystem_simulation.c*" function located in the "*Code*" directory. The function contains commented instructions for the user to modify input parameters. Modify as desired, and save the file.
+2. Open a new terminal (C) and compile the file by using the following command:
+
+                   gcc Code/ecosystem_simulation.c -lm
+Write in terminal the command:
+                    ./a.out
+You should have the csv files in internal folder. Save the file. 
+   
+3. Open the makefile, change the line 16 (PYTHON variable) by your python path:
+
+4. Run the following line in the terminal of makefile file:
     ```
     make
     ```
-The program will run automatically, and will open two plotting windows in full screen. Once you close them , the program cleans up compiled filed files and terminates automatically.
+The program (python codes) will run automatically, and will open five plotting windows in full screen. Once you close them, they are stocked in ouptut.
 
 ## Requirements
 
