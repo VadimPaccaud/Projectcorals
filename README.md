@@ -5,14 +5,14 @@
 This program simulates in first the impact of temperature on a coral reef in Gili Island. In a second time, the program simulate a release of pollutants and how it impacts the corals.
 
 The program will:
-1. Solve a differential system equations and save the results in a CSV file (**resolution_modelisation.c**)
-2. Plot the results of the CSV file (**visualisation_modele.py**)
-3. Simulate the release of CO2 in atmosphere and how it's affect the pH of the ocean and save the results in 3 CSV file (**main_humanimpact.c**)
-4. Plot the results of the two CSV file (**visualisation_pollution.py** and **visualisation_acidite.py** respectively)
-5. Apply linear regression method on datas collected in one of the CSV file and plot it (**linearregression.py**)
+1. Solve a differential system equations and save the results in a CSV file ("*resolution_modelisation.c*")
+2. Plot the results of the CSV file ("*visualisation_modele.py*")
+3. Simulate the release of CO2 in atmosphere and how it's affect the pH of the ocean and save the results in 3 CSV file ("*main_humanimpact.c*")
+4. Plot the results of the two CSV file ("*visualisation_pollution.py*" and "*visualisation_acidite.py*" respectively)
+5. Apply linear regression method on datas collected in one of the CSV file and plot it ("*linearregression.py*")
 6. All graphs results obtained, and key figures will be saved in "*Results*" as .png .
 
-## Project structure !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## Project structure
 
 - As the data used were few in number, it was quicker to write them directly to the code. We mention them in the code. 
 - "*Internal*" contains files used for passing information between C and Python. They are automatically edited by the program and should not be manually modified.
@@ -25,18 +25,17 @@ Inputs:
 - As the data used were few in number, it was quicker to write them directly to the code. We mention them in the code.
 
 Internal files:
-- **Internal/ecosystem_simulation_results.csv** is a comma-delimited file.
-- **Internal/CO2_terrain.csv** , 1 column and 10'000 rows file.
-- **Internal/acidite_terrain.csv**, 1 column and 10'000 rows file.
-- **Internal/valeurs_uniques_pH_sante.csv** , is a comma-delimited file.
+- "*Internal/ecosystem_simulation_results.csv*" is a comma-delimited file.
+- "*Internal/CO2_terrain.csv*" , 1 column and 10'000 rows file.
+- "*Internal/acidite_terrain.csv*", 1 column and 10'000 rows file.
+- "*Internal/valeurs_uniques_pH_sante.csv*" , is a comma-delimited file.
 
 Outputs:
-- "*Results*" contains several image files, each has a custom name of format: "*Dissolved_Oxygen_{Month}_{Value}_percent.png*". You can save them or delete them as required.
-- "*Results/Results.txt*" is a text file containing summarized information of the simulation, such as critical time and distance. Do **not** delete this file.
-- **C02_atmosphere_figure.png** is an image file, showing the C02 concentration in the atmosphere
-- **pH_water_figure.png** is an image file, showing the pH of water
-- **observation_results.png** is an image file, plotting the datas collected
-- **final_curve.png** is an image file, plotting the relation between coral health and the pH of water
+- "*Outputs*" contains several image files, each has a custom name of format: "*name.png*". 
+- "*C02_atmosphere_figure.png*" is an image file, showing the C02 concentration in the atmosphere
+- "*pH_water_figure.png*" is an image file, showing the pH of water
+- "*observation_results.png*" is an image file, plotting the datas collected
+- "*final_curve.png*" is an image file, plotting the relation between coral health and the pH of water
 
 ## Implementation details
 
